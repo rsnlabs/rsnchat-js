@@ -1,7 +1,7 @@
 {
   "name": "rsnchat",
-  "version": "2.0.5",
-  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa and Mixtral",
+  "version": "2.0.6",
+  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon",
   "main": "index.js",
   "bin": {
     "rsnchat": "./cli.js"
@@ -24,8 +24,11 @@
     "chatbot",
     "chatgpt",
     "gpt",
+    "openchat",
     "bard",
     "llama",
+    "mixtral",
+    "gemini",
     "bing",
     "api",
     "image",
@@ -44,7 +47,13 @@
     "robot",
     "axios",
     "free",
-    "stable"
+    "stable",
+    "absolutebeauty",
+    "ai-icon",
+    "sdxl",
+    "dalle",
+    "prodia",
+    "kandinsky"
   ],
   "dependencies": {
     "axios": "^1.6.3",
