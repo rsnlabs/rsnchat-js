@@ -5,6 +5,7 @@ const OpenChat_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/openchat";
 const Bard_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/bard";
 const Gemini_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/gemini";
 const LlamaApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/llama";
+const CodeLlamaApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/codellama";
 const MixtralApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/mixtral";
 
 const ProdiaApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/prodia";
@@ -133,6 +134,25 @@ class RsnChat {
       return response.data;
     } catch (error) {
       throw new Error(`RsnChat Mixtral Error: ${error}`);
+    }
+  }
+
+  async codellama(prompt) {
+    try {
+      const payload = {
+        prompt: prompt,
+      };
+
+      const authHeader = `Bearer ${this.apiKey}`;
+
+      const headers = {
+        Authorization: authHeader,
+      };
+
+      const response = await axios.post(CodeLlamaApiUrl, payload, { headers });
+      return response.data;
+    } catch (error) {
+      throw new Error(`RsnChat CodeLlaMa Error: ${error}`);
     }
   }
   
