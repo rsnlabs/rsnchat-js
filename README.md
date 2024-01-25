@@ -5,11 +5,13 @@ This package package for interacting with GPT4-based chat services, OpenChat, Ba
 ## Installation
 
 **Installation For CLI**
+
 ```bash
 npm i -g rsnchat
 ```
 
 **Installation**
+
 ```bash
 npm i rsnchat
 ```
@@ -20,100 +22,92 @@ Discord : [https://discord.gg/r5QWdKfQxr](https://discord.gg/r5QWdKfQxr)
 
 Join discord server and create account with **/new** slash command and get your apikey with **/key** slash command for free!
 
-
 ## Usage GPT4
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
-rsnchat.gpt('Hello, what is your name?')
-  .then(response => {
-    console.log(response.message);
-  })
+rsnchat.gpt("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
 ```
 
 ## Usage OpenChat
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
-rsnchat.openchat('Hello, what is your name?')
-  .then(response => {
-    console.log(response.message);
-  })
+rsnchat.openchat("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
 ```
 
 ## Usage Bard
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
-rsnchat.bard('Hello, what is your name?')
-  .then(response => {
-    console.log(response.message);
-  })
+rsnchat.bard("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
 ```
 
 ## Usage Gemini
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
-rsnchat.gemini('Hello, what is your name?')
-  .then(response => {
-    console.log(response.message);
-  })
+rsnchat.gemini("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
 ```
 
 ## Usage LlaMa
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
-rsnchat.llama('Hello, what is your name?')
-  .then(response => {
-    console.log(response.message);
-  })
+rsnchat.llama("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
 ```
 
 ## Usage Mixtral
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
-rsnchat.mixtral('Hello, what is your name?')
-  .then(response => {
-    console.log(response.message);
-  })
+rsnchat.mixtral("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
 ```
 
 ## Usage Prodia
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
 const model = "absolutereality_v181.safetensors [3d9d4d2b]";
 
-rsnchat.prodia(prompt, negative_prompt, model)
-  .then(response => {
-    console.log(response);
-  })
+rsnchat.prodia(prompt, negative_prompt, model).then((response) => {
+  console.log(response);
+});
 ```
 
 #### Prodia Models
@@ -180,82 +174,78 @@ List of prodia models
 ## Usage Kandinsky
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
 
-rsnchat.kandinsky(prompt, negative_prompt)
-  .then(response => {
-    console.log(response);
-  })
+rsnchat.kandinsky(prompt, negative_prompt).then((response) => {
+  console.log(response);
+});
 ```
 
 ## Usage Absolutebeauty
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
 
-rsnchat.absolutebeauty(prompt, negative_prompt)
-  .then(response => {
-    console.log(response);
-  })
+rsnchat.absolutebeauty(prompt, negative_prompt).then((response) => {
+  console.log(response);
+});
 ```
 
 ## Usage Sdxl
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
 
-rsnchat.sdxl(prompt, negative_prompt)
-  .then(response => {
-    console.log(response);
-  })
+rsnchat.sdxl(prompt, negative_prompt).then((response) => {
+  console.log(response);
+});
 ```
 
 ## Usage Dalle
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 
-rsnchat.dalle(prompt)
-  .then(response => {
-    console.log(response);
-  })
+rsnchat.dalle(prompt).then((response) => {
+  console.log(response);
+});
 ```
 
 ## Usage AI Icon
 
 ```javascript
-const RsnChat = require('rsnchat');
+const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat('chatgpt_××××××××××××××××××××××');
+const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 
-rsnchat.icon(prompt)
-  .then(response => {
-    console.log(response);
-  })
+rsnchat.icon(prompt).then((response) => {
+  console.log(response);
+});
 ```
 
 **Example CLI Command**
+
 ```hs
 rsnchat
 ```
