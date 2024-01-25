@@ -12,7 +12,9 @@ interface Image extends Result {
     image: string;
 }
 declare class RsnChat {
-    apiKey: string;
+    headers: {
+        Authorization: string;
+    };
     constructor(apikey: string);
     /**
      * Generate Text Completion via ChatGPT
