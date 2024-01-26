@@ -22,18 +22,37 @@ const SdxlApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/sdxl";
 const DalleApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/dalle";
 const IconApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/icon";
 class RsnChat {
+    /**
+     * **RsnChat**
+     *
+     * Discord : https://discord.gg/r5QWdKfQxr
+     *
+     * Join discord server and create account with /new slash command and get your apikey with /key slash command for free!
+     *
+     * @param {string} apikey - RsnChat API Key (required)
+     */
     constructor(apikey) {
         this.headers = {
             Authorization: "",
         };
         this.headers = {
-            Authorization: `Bearer ${apikey}`
+            Authorization: `Bearer ${apikey}`,
         };
     }
     /**
      * Generate Text Completion via ChatGPT
-     * @param prompt
-     * @returns
+     * @param {string} prompt ChatGPT prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * rsnchat.gpt("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
      */
     gpt(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -41,7 +60,9 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(GPT_ApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(GPT_ApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -50,17 +71,29 @@ class RsnChat {
         });
     }
     /**
-   * Generate Text Completion via OpenChat
-   * @param prompt
-   * @returns
-   */
+     * Generate Text Completion via OpenChat
+     * @param {string} prompt OpenChat prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * rsnchat.openchat("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
     openchat(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(OpenChat_ApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(OpenChat_ApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -69,17 +102,29 @@ class RsnChat {
         });
     }
     /**
-   * Generate Text Completion via Bard
-   * @param prompt
-   * @returns
-   */
+     * Generate Text Completion via Bard
+     * @param {string} prompt Bard AI prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * rsnchat.bard("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
     bard(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(Bard_ApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(Bard_ApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -88,17 +133,29 @@ class RsnChat {
         });
     }
     /**
-   * Generate Text Completion via Gemini
-   * @param prompt
-   * @returns
-   */
+     * Generate Text Completion via Gemini
+     * @param {string} prompt Gemini prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * rsnchat.gemini("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns
+     */
     gemini(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(Gemini_ApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(Gemini_ApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -107,17 +164,29 @@ class RsnChat {
         });
     }
     /**
-   * Generate Text Completion via LLaMa
-   * @param prompt
-   * @returns
-   */
+     * Generate Text Completion via LLaMa
+     * @param {string} prompt LlaMa prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * rsnchat.llama("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
     llama(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(LlamaApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(LlamaApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -126,17 +195,29 @@ class RsnChat {
         });
     }
     /**
-   * Generate Text Completion via Mixtral
-   * @param prompt
-   * @returns
-   */
+     * Generate Text Completion via Mixtral
+     * @param {string} prompt Mixtral prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * rsnchat.mixtral("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
     mixtral(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(MixtralApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(MixtralApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -145,17 +226,29 @@ class RsnChat {
         });
     }
     /**
-   * Generate Text Completion via CodeLLaMa
-   * @param prompt
-   * @returns
-   */
+     * Generate Text Completion via CodeLLaMa
+     * @param {string} prompt CodeLlaMa prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * rsnchat.codellama("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
     codellama(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(CodeLlamaApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(CodeLlamaApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -164,10 +257,27 @@ class RsnChat {
         });
     }
     /**
-   * Generate Image with Prodia
-   * @param prompt
-   * @returns
-   */
+     * Generate Image with Prodia
+     *
+     * @param {string} prompt Prodia prompt
+     * @param {string} negative_prompt Prodia negative prompt
+     * @param {string} model Prodia model
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     * const negative_prompt = "blury, bad quality";
+     * const model = "absolutereality_v181.safetensors [3d9d4d2b]";
+     *
+     * rsnchat.prodia(prompt, negative_prompt, model).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns
+     */
     prodia(prompt, negative_prompt, model) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -185,7 +295,9 @@ class RsnChat {
                     negative_prompt: negative_prompt,
                     model: model,
                 };
-                const response = yield axios.post(ProdiaApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(ProdiaApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -194,10 +306,24 @@ class RsnChat {
         });
     }
     /**
-   * Generate Image with kandinsky
-   * @param prompt
-   * @returns
-   */
+     * Generate Image with kandinsky
+     * @param {string} prompt kandinsky prompt
+     * @param {string} negative_prompt kandinsky negative prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     * const negative_prompt = "blury, bad quality";
+     *
+     * rsnchat.kandinsky(prompt, negative_prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | "No negative_prompt provided." | Image>}
+     */
     kandinsky(prompt, negative_prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -211,7 +337,9 @@ class RsnChat {
                     prompt: prompt,
                     negative_prompt: negative_prompt,
                 };
-                const response = yield axios.post(KandinskyApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(KandinskyApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -220,10 +348,24 @@ class RsnChat {
         });
     }
     /**
-   * Generate Image with AbsoluteBeauty
-   * @param prompt
-   * @returns
-   */
+     * Generate Image with AbsoluteBeauty
+     * @param {string} prompt AbsoluteBeauty prompt
+     * @param {string} negative_prompt AbsoluteBeauty negative prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     * const negative_prompt = "blury, bad quality";
+     *
+     * rsnchat.absolutebeauty(prompt, negative_prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | "No negative_prompt provided." | Image>}
+     */
     absolutebeauty(prompt, negative_prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -237,7 +379,9 @@ class RsnChat {
                     prompt: prompt,
                     negative_prompt: negative_prompt,
                 };
-                const response = yield axios.post(AbsolutebeautyApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(AbsolutebeautyApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -246,10 +390,24 @@ class RsnChat {
         });
     }
     /**
-  * Generate Image with SDXL
-  * @param prompt
-  * @returns
-  */
+     * Generate Image with SDXL
+     * @param {string} prompt SDXL prompt
+     * @param {string} negative_prompt SDXL negative prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     * const negative_prompt = "blury, bad quality";
+     *
+     * rsnchat.sdxl(prompt, negative_prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | "No negative_prompt provided." | Image>}
+     */
     sdxl(prompt, negative_prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -263,7 +421,9 @@ class RsnChat {
                     prompt: prompt,
                     negative_prompt: negative_prompt,
                 };
-                const response = yield axios.post(SdxlApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(SdxlApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -272,10 +432,22 @@ class RsnChat {
         });
     }
     /**
-  * Generate Image with DallE
-  * @param prompt
-  * @returns
-  */
+     * Generate Image with DallE
+     * @param {string} prompt DallE prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.dalle(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
     dalle(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -285,7 +457,9 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(DalleApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(DalleApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
@@ -294,10 +468,22 @@ class RsnChat {
         });
     }
     /**
-  * Generate Image with IconAPI
-  * @param prompt
-  * @returns
-  */
+     * Generate Image with IconAPI
+     * @param {string} prompt IconAPI prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.icon(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
     icon(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -307,7 +493,9 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios.post(IconApiUrl, payload, { headers: this.headers });
+                const response = yield axios.post(IconApiUrl, payload, {
+                    headers: this.headers,
+                });
                 return response.data;
             }
             catch (error) {
