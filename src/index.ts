@@ -4,6 +4,7 @@ const GPT_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/gpt";
 const OpenChat_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/openchat";
 const Bard_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/bard";
 const Gemini_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/gemini";
+const Bing_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/bing";
 const LlamaApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/llama";
 const CodeLlamaApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/codellama";
 const MixtralApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/mixtral";
@@ -228,6 +229,36 @@ class RsnChat {
       return response.data as TextResult;
     } catch (error) {
       throw new Error(`RsnChat Gemini Error: ${error}`);
+    }
+  }
+  
+  /**
+   * Generate Text Completion via Bing
+   * @param {string} prompt Bing prompt
+   * @example
+   * ```js
+   * const { RsnChat } = require("rsnchat");
+   *
+   * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+   *
+   * rsnchat.bing("Hello, what is your name?").then((response) => {
+   *   console.log(response.message);
+   * });
+   * ```
+   * @returns
+   */
+  async bing(prompt: string) {
+    try {
+      const payload = {
+        prompt: prompt,
+      };
+
+      const response = await axios.post(Bing_ApiUrl, payload, {
+        headers: this.headers,
+      });
+      return response.data as TextResult;
+    } catch (error) {
+      throw new Error(`RsnChat Bing Error: ${error}`);
     }
   }
 

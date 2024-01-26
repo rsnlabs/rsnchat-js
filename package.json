@@ -1,7 +1,7 @@
 {
   "name": "rsnchat",
-  "version": "3.0.4",
-  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon",
+  "version": "3.0.5",
+  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini,Bing, LlaMa, CodeLlama, Mixtral, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon",
   "type": "module",
   "types": "./types/index.d.ts",
   "bin": {
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RsnGPT/rsnchat-js"
+    "url": "https://github.com/RsnLabs/rsnchat-js"
   },
   "funding": {
     "type": "buymeacoffee",
@@ -80,6 +80,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.6",
+    "npm-run-all": "^4.1.5",
     "typescript": "^5.3.3",
     "undici-types": "^6.4.0"
   }

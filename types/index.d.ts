@@ -91,6 +91,22 @@ declare class RsnChat {
      */
     gemini(prompt: string): Promise<TextResult>;
     /**
+     * Generate Text Completion via Bing
+     * @param {string} prompt Bing prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     *
+     * rsnchat.bing("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns
+     */
+    bing(prompt: string): Promise<TextResult>;
+    /**
      * Generate Text Completion via LLaMa
      * @param {string} prompt LlaMa prompt
      * @example

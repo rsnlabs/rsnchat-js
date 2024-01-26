@@ -70,14 +70,14 @@ function startChat(rsnChat, username) {
   function promptChatMethod() {
     rl.question(
       colors.cyan(
-        'Select a chat method (GPT, BARD, OPENCHAT, LLAMA, GEMINI, MIXTRAL), or type "exit" to exit: '
+        'Select a chat method (GPT, OPENCHAT, BARD, GEMINI, BING, LLAMA, CODELLAMA, MIXTRAL), or type "exit" to exit: '
       ),
       (method) => {
         if (method.toLowerCase().trim() === "exit") {
           console.log(colors.yellow("\nExiting RsnChat CLI. Goodbye!\n"));
           rl.close();
         } else if (
-          ["GPT", "BARD", "OPENCHAT", "LLAMA", "GEMINI", "MIXTRAL"].includes(
+          ["GPT", "OPENCHAT", "BARD", "GEMINI", "BING", "LLAMA", "CODELLAMA", "MIXTRAL"].includes(
             method.toUpperCase()
           )
         ) {
@@ -85,7 +85,7 @@ function startChat(rsnChat, username) {
         } else {
           console.error(
             colors.red(
-              'Invalid chat method. Please select GPT, BARD, OPENCHAT, LLAMA, GEMINI, MIXTRAL, or type "exit" to exit.'
+              'Invalid chat method. Please select GPT, OPENCHAT, BARD, GEMINI, BING, LLAMA, CODELLAMA, MIXTRAL, or type "exit" to exit.'
             )
           );
           promptChatMethod();
