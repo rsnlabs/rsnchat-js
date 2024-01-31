@@ -33,7 +33,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.gpt("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -49,7 +49,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.openchat("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -65,7 +65,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.bard("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -81,7 +81,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.gemini("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -97,7 +97,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.bing("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -113,7 +113,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.llama("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -129,7 +129,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.mixtral("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -139,13 +139,29 @@ declare class RsnChat {
      */
     mixtral(prompt: string): Promise<TextResult>;
     /**
+     * Generate Text Completion via Claude
+     * @param {string} prompt Claude prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * rsnchat.claude("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
+    claude(prompt: string): Promise<TextResult>;
+    /**
      * Generate Text Completion via CodeLLaMa
      * @param {string} prompt CodeLlaMa prompt
      * @example
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.codellama("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -164,7 +180,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      * const negative_prompt = "blury, bad quality";
@@ -185,7 +201,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      * const negative_prompt = "blury, bad quality";
@@ -205,7 +221,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      * const negative_prompt = "blury, bad quality";
@@ -225,7 +241,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      * const negative_prompt = "blury, bad quality";
@@ -244,7 +260,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      *
@@ -262,7 +278,7 @@ declare class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      *

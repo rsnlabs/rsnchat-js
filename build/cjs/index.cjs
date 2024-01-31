@@ -14,20 +14,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsnChat = void 0;
 const axios_1 = __importDefault(require("axios"));
-const GPT_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/gpt";
-const OpenChat_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/openchat";
-const Bard_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/bard";
-const Gemini_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/gemini";
-const Bing_ApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/bing";
-const LlamaApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/llama";
-const CodeLlamaApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/codellama";
-const MixtralApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/mixtral";
-const ProdiaApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/prodia";
-const KandinskyApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/kandinsky";
-const AbsolutebeautyApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/absolutebeauty";
-const SdxlApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/sdxl";
-const DalleApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/dalle";
-const IconApiUrl = "https://ai.rnilaweera.ovh/api/v1/user/icon";
+const GPT_ApiUrl = "https://api.rsnai.org/api/v1/user/gpt";
+const OpenChat_ApiUrl = "https://api.rsnai.org/api/v1/user/openchat";
+const Bard_ApiUrl = "https://api.rsnai.org/api/v1/user/bard";
+const Gemini_ApiUrl = "https://api.rsnai.org/api/v1/user/gemini";
+const Bing_ApiUrl = "https://api.rsnai.org/api/v1/user/bing";
+const LlamaApiUrl = "https://api.rsnai.org/api/v1/user/llama";
+const CodeLlamaApiUrl = "https://api.rsnai.org/api/v1/user/codellama";
+const MixtralApiUrl = "https://api.rsnai.org/api/v1/user/mixtral";
+const ClaudeApiUrl = "https://api.rsnai.org/api/v1/user/claude";
+const ProdiaApiUrl = "https://api.rsnai.org/api/v1/user/prodia";
+const KandinskyApiUrl = "https://api.rsnai.org/api/v1/user/kandinsky";
+const AbsolutebeautyApiUrl = "https://api.rsnai.org/api/v1/user/absolutebeauty";
+const SdxlApiUrl = "https://api.rsnai.org/api/v1/user/sdxl";
+const DalleApiUrl = "https://api.rsnai.org/api/v1/user/dalle";
+const IconApiUrl = "https://api.rsnai.org/api/v1/user/icon";
 class RsnChat {
     /**
      * **RsnChat**
@@ -53,7 +54,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.gpt("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -84,7 +85,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.openchat("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -115,7 +116,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.bard("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -146,7 +147,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.gemini("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -177,7 +178,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.bing("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -208,7 +209,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.llama("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -239,7 +240,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.mixtral("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -264,13 +265,44 @@ class RsnChat {
         });
     }
     /**
+     * Generate Text Completion via Claude
+     * @param {string} prompt Claude prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * rsnchat.claude("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
+    claude(prompt) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const payload = {
+                    prompt: prompt,
+                };
+                const response = yield axios_1.default.post(ClaudeApiUrl, payload, {
+                    headers: this.headers,
+                });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`RsnChat Claude Error: ${error}`);
+            }
+        });
+    }
+    /**
      * Generate Text Completion via CodeLLaMa
      * @param {string} prompt CodeLlaMa prompt
      * @example
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * rsnchat.codellama("Hello, what is your name?").then((response) => {
      *   console.log(response.message);
@@ -304,7 +336,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      * const negative_prompt = "blury, bad quality";
@@ -351,7 +383,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      * const negative_prompt = "blury, bad quality";
@@ -393,7 +425,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      * const negative_prompt = "blury, bad quality";
@@ -435,7 +467,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      * const negative_prompt = "blury, bad quality";
@@ -476,7 +508,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      *
@@ -512,7 +544,7 @@ class RsnChat {
      * ```js
      * const { RsnChat } = require("rsnchat");
      *
-     * const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
      *
      * const prompt = "beautiful girl";
      *

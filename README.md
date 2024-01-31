@@ -1,6 +1,6 @@
 # rsnchat
 
-This package package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon without restrictions or limits
+This package package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Claude, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon without restrictions or limits
 
 ## Installation
 
@@ -27,7 +27,7 @@ Join discord server and create account with **/new** slash command and get your 
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.gpt("Hello, what is your name?").then((response) => {
   console.log(response.message);
@@ -39,7 +39,7 @@ rsnchat.gpt("Hello, what is your name?").then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.openchat("Hello, what is your name?").then((response) => {
   console.log(response.message);
@@ -51,7 +51,7 @@ rsnchat.openchat("Hello, what is your name?").then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.bard("Hello, what is your name?").then((response) => {
   console.log(response.message);
@@ -63,9 +63,21 @@ rsnchat.bard("Hello, what is your name?").then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.gemini("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
+```
+
+## Usage Bing
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+rsnchat.bing("Hello, what is your name?").then((response) => {
   console.log(response.message);
 });
 ```
@@ -75,7 +87,7 @@ rsnchat.gemini("Hello, what is your name?").then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.llama("Hello, what is your name?").then((response) => {
   console.log(response.message);
@@ -87,9 +99,33 @@ rsnchat.llama("Hello, what is your name?").then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.mixtral("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
+```
+
+## Usage CodeLlama
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+rsnchat.codellama("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
+```
+
+## Usage Claude (premium)
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+rsnchat.claude("Hello, what is your name?").then((response) => {
   console.log(response.message);
 });
 ```
@@ -99,7 +135,7 @@ rsnchat.mixtral("Hello, what is your name?").then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
@@ -176,7 +212,7 @@ List of prodia models
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
@@ -191,7 +227,7 @@ rsnchat.kandinsky(prompt, negative_prompt).then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
@@ -206,7 +242,7 @@ rsnchat.absolutebeauty(prompt, negative_prompt).then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
@@ -221,7 +257,7 @@ rsnchat.sdxl(prompt, negative_prompt).then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 
@@ -235,7 +271,7 @@ rsnchat.dalle(prompt).then((response) => {
 ```javascript
 const { RsnChat } = require("rsnchat");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 

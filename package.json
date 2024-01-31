@@ -1,7 +1,7 @@
 {
   "name": "rsnchat",
-  "version": "3.0.5",
-  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini,Bing, LlaMa, CodeLlama, Mixtral, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon",
+  "version": "3.0.6",
+  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, Bing, LlaMa, CodeLlama, Mixtral, Claude, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon",
   "type": "module",
   "types": "./types/index.d.ts",
   "bin": {
@@ -33,7 +33,7 @@
   },
   "funding": {
     "type": "buymeacoffee",
-    "url": "https://www.buymeacoffee.com/rnilaweera"
+    "url": "https://www.buymeacoffee.com/RsnLabs"
   },
   "author": "rnilaweera",
   "license": "MIT",
@@ -42,6 +42,7 @@
     "chatbot",
     "chatgpt",
     "gpt",
+    "claude",
     "openchat",
     "bard",
     "llama",

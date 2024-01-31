@@ -27,7 +27,7 @@ function promptApiKey() {
   rl.question(colors.bold.green("Enter your API key: "), async (apiKey) => {
     try {
       const response = await axios.post(
-        "https://ai.rnilaweera.ovh/api/v1/user/validate",
+        "https://api.rsnai.org/api/v1/user/validate",
         { key: apiKey }
       );
 

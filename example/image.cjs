@@ -1,6 +1,6 @@
 const { RsnChat } = require("../build/cjs/index.cjs");
 
-const rsnchat = new RsnChat("chatgpt_××××××××××××××××××××××");
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 const prompt = "beautiful girl";
 const negative_prompt = "blury, bad quality";
