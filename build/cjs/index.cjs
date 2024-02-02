@@ -14,21 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsnChat = void 0;
 const axios_1 = __importDefault(require("axios"));
-const GPT_ApiUrl = "https://api.rsnai.org/api/v1/user/gpt";
-const OpenChat_ApiUrl = "https://api.rsnai.org/api/v1/user/openchat";
-const Bard_ApiUrl = "https://api.rsnai.org/api/v1/user/bard";
-const Gemini_ApiUrl = "https://api.rsnai.org/api/v1/user/gemini";
-const Bing_ApiUrl = "https://api.rsnai.org/api/v1/user/bing";
-const LlamaApiUrl = "https://api.rsnai.org/api/v1/user/llama";
-const CodeLlamaApiUrl = "https://api.rsnai.org/api/v1/user/codellama";
-const MixtralApiUrl = "https://api.rsnai.org/api/v1/user/mixtral";
-const ClaudeApiUrl = "https://api.rsnai.org/api/v1/user/claude";
-const ProdiaApiUrl = "https://api.rsnai.org/api/v1/user/prodia";
-const KandinskyApiUrl = "https://api.rsnai.org/api/v1/user/kandinsky";
-const AbsolutebeautyApiUrl = "https://api.rsnai.org/api/v1/user/absolutebeauty";
-const SdxlApiUrl = "https://api.rsnai.org/api/v1/user/sdxl";
-const DalleApiUrl = "https://api.rsnai.org/api/v1/user/dalle";
-const IconApiUrl = "https://api.rsnai.org/api/v1/user/icon";
+const apiUrl = "https://api.rsnai.org/api/v1/user";
 class RsnChat {
     /**
      * **RsnChat**
@@ -43,9 +29,30 @@ class RsnChat {
         this.headers = {
             Authorization: "",
         };
+        if (!apikey) {
+            throw new Error("Please provide API key");
+        }
+        this.validateApiKey(apikey);
         this.headers = {
             Authorization: `Bearer ${apikey}`,
         };
+    }
+    validateApiKey(apikey) {
+        const validateUrl = `${apiUrl}/validate`;
+        axios_1.default.post(validateUrl, {
+            key: apikey
+        }).then((res) => {
+            if (res.status !== 200) {
+                throw new Error(`Invalid API Key: ${apikey}`);
+            }
+        }).catch((error) => {
+            if (error.response && error.response.status === 403) {
+                throw new Error(`Invalid API Key (403 Forbidden): ${apikey}`);
+            }
+            else {
+                throw new Error(`API Key Validation Error: ${error.message}`);
+            }
+        });
     }
     /**
      * Generate Text Completion via ChatGPT
@@ -68,7 +75,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(GPT_ApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/gpt`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -99,7 +106,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(OpenChat_ApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/openchat`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -130,7 +137,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(Bard_ApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/bard`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -161,7 +168,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(Gemini_ApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/gemini`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -192,7 +199,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(Bing_ApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/bing`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -223,7 +230,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(LlamaApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/llama`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -254,7 +261,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(MixtralApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/mixtral`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -285,7 +292,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(ClaudeApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/claude`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -316,7 +323,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(CodeLlamaApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/codellama`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -365,7 +372,7 @@ class RsnChat {
                     negative_prompt: negative_prompt,
                     model: model,
                 };
-                const response = yield axios_1.default.post(ProdiaApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/prodia`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -407,7 +414,7 @@ class RsnChat {
                     prompt: prompt,
                     negative_prompt: negative_prompt,
                 };
-                const response = yield axios_1.default.post(KandinskyApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/kandinsky`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -449,7 +456,7 @@ class RsnChat {
                     prompt: prompt,
                     negative_prompt: negative_prompt,
                 };
-                const response = yield axios_1.default.post(AbsolutebeautyApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/absolutebeauty`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -491,7 +498,7 @@ class RsnChat {
                     prompt: prompt,
                     negative_prompt: negative_prompt,
                 };
-                const response = yield axios_1.default.post(SdxlApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/sdxl`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -527,7 +534,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(DalleApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/dalle`, payload, {
                     headers: this.headers,
                 });
                 return response.data;
@@ -563,7 +570,7 @@ class RsnChat {
                 const payload = {
                     prompt: prompt,
                 };
-                const response = yield axios_1.default.post(IconApiUrl, payload, {
+                const response = yield axios_1.default.post(`${apiUrl}/icon`, payload, {
                     headers: this.headers,
                 });
                 return response.data;

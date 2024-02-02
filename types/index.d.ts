@@ -25,7 +25,8 @@ declare class RsnChat {
      *
      * @param {string} apikey - RsnChat API Key (required)
      */
-    constructor(apikey: string);
+    constructor(apikey?: string);
+    validateApiKey(apikey: string): void;
     /**
      * Generate Text Completion via ChatGPT
      * @param {string} prompt ChatGPT prompt
