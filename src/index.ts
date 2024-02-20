@@ -359,6 +359,36 @@ class RsnChat {
       throw new Error(`RsnChat Claude Error: ${error}`);
     }
   }
+  
+  /**
+   * Generate Text Completion via Naomi
+   * @param {string} prompt Naomi prompt
+   * @example
+   * ```js
+   * const { RsnChat } = require("rsnchat");
+   *
+   * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+   *
+   * rsnchat.naomi("Hello, what is your name?").then((response) => {
+   *   console.log(response.message);
+   * });
+   * ```
+   * @returns {Promise<TextResult>}
+   */
+  async naomi(prompt: string): Promise<TextResult> {
+    try {
+      const payload = {
+        prompt: prompt,
+      };
+
+      const response = await axios.post(`${apiUrl}/naomi`, payload, {
+        headers: this.headers,
+      });
+      return response.data as TextResult;
+    } catch (error) {
+      throw new Error(`RsnChat Naomi Error: ${error}`);
+    }
+  }
 
   /**
    * Generate Text Completion via CodeLLaMa

@@ -1,7 +1,7 @@
 {
   "name": "rsnchat",
-  "version": "3.0.7",
-  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, Bing, LlaMa, CodeLlama, Mixtral, Claude, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon",
+  "version": "3.0.8",
+  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, Bing, LlaMa, CodeLlama, Mixtral, Claude, Naomi, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon",
   "type": "module",
   "types": "./types/index.d.ts",
   "bin": {

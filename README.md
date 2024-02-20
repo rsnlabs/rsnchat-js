@@ -1,6 +1,6 @@
 # rsnchat
 
-This package package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Claude, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon without restrictions or limits
+This package package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Claude, Naomi, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon without restrictions or limits
 
 ## Installation
 
@@ -126,6 +126,18 @@ const { RsnChat } = require("rsnchat");
 const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.claude("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
+```
+
+## Usage Naomi (ai girlfriend) (premium)
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+rsnchat.naomi("Hello, what is your name?").then((response) => {
   console.log(response.message);
 });
 ```

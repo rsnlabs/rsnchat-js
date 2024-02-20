@@ -156,6 +156,22 @@ declare class RsnChat {
      */
     claude(prompt: string): Promise<TextResult>;
     /**
+     * Generate Text Completion via Naomi
+     * @param {string} prompt Naomi prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * rsnchat.naomi("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
+    naomi(prompt: string): Promise<TextResult>;
+    /**
      * Generate Text Completion via CodeLLaMa
      * @param {string} prompt CodeLlaMa prompt
      * @example

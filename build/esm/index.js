@@ -297,6 +297,37 @@ class RsnChat {
         });
     }
     /**
+     * Generate Text Completion via Naomi
+     * @param {string} prompt Naomi prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * rsnchat.naomi("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
+    naomi(prompt) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const payload = {
+                    prompt: prompt,
+                };
+                const response = yield axios.post(`${apiUrl}/naomi`, payload, {
+                    headers: this.headers,
+                });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`RsnChat Naomi Error: ${error}`);
+            }
+        });
+    }
+    /**
      * Generate Text Completion via CodeLLaMa
      * @param {string} prompt CodeLlaMa prompt
      * @example
