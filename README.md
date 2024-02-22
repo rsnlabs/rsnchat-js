@@ -1,4 +1,7 @@
-# rsnchat
+<h1 align="center"><b>RsnChat</b> <img src="https://i.ibb.co/0J89TrT/rsn-bot-1.png" width="30" style="border-radius: 50%; margin-bottom: -5px"></h1>
+<p align="center"><i>The ultimate AI-powered RsnChat</i></p>
+
+<p align="center"> <a href="https://www.digitalocean.com/?refcode=52756eb13d44&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img width=200 height=90 src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" /></a> </p>
 
 This package package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Claude, Naomi, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon without restrictions or limits
 
