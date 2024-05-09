@@ -28,8 +28,8 @@ declare class RsnChat {
     constructor(apikey?: string);
     validateApiKey(apikey: string): void;
     /**
-     * Generate Text Completion via ChatGPT
-     * @param {string} prompt ChatGPT prompt
+     * Generate Text Completion via GPT3
+     * @param {string} prompt GPT3 prompt
      * @example
      * ```js
      * const { RsnChat } = require("rsnchat");
@@ -43,6 +43,22 @@ declare class RsnChat {
      * @returns {Promise<TextResult>}
      */
     gpt(prompt: string): Promise<TextResult>;
+    /**
+     * Generate Text Completion via GPT4
+     * @param {string} prompt GPT4 prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * rsnchat.gpt4("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
+    gpt4(prompt: string): Promise<TextResult>;
     /**
      * Generate Text Completion via OpenChat
      * @param {string} prompt OpenChat prompt
@@ -188,6 +204,22 @@ declare class RsnChat {
      */
     codellama(prompt: string): Promise<TextResult>;
     /**
+     * Generate Text Completion via ZeroTwo
+     * @param {string} prompt ZeroTwo prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * rsnchat.zerotwo("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
+    zerotwo(prompt: string): Promise<TextResult>;
+    /**
      * Generate Image with Prodia
      *
      * @param {string} prompt Prodia prompt
@@ -306,5 +338,77 @@ declare class RsnChat {
      * @returns {Promise<"No prompt provided." | Image>}
      */
     icon(prompt: string): Promise<"No prompt provided." | Image>;
+    /**
+     * Generate Image with Anime
+     * @param {string} prompt Anime prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.anime(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
+    anime(prompt: string): Promise<"No prompt provided." | Image>;
+    /**
+     * Generate Image with cartoon
+     * @param {string} prompt cartoon prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.cartoon(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
+    cartoon(prompt: string): Promise<"No prompt provided." | Image>;
+    /**
+     * Generate Image with photograpy
+     * @param {string} prompt DallE prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.photograpy(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
+    photograpy(prompt: string): Promise<"No prompt provided." | Image>;
+    /**
+     * Generate Image with disney
+     * @param {string} prompt disney prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.disney(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
+    disney(prompt: string): Promise<"No prompt provided." | Image>;
 }
 export { RsnChat, Result, Image, TextResult, ProdiaResult };

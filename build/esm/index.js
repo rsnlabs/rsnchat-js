@@ -49,8 +49,8 @@ class RsnChat {
         });
     }
     /**
-     * Generate Text Completion via ChatGPT
-     * @param {string} prompt ChatGPT prompt
+     * Generate Text Completion via GPT3
+     * @param {string} prompt GPT3 prompt
      * @example
      * ```js
      * const { RsnChat } = require("rsnchat");
@@ -75,7 +75,38 @@ class RsnChat {
                 return response.data;
             }
             catch (error) {
-                throw new Error(`RsnChat GPT Error: ${error}`);
+                throw new Error(`RsnChat GPT3 Error: ${error}`);
+            }
+        });
+    }
+    /**
+     * Generate Text Completion via GPT4
+     * @param {string} prompt GPT4 prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * rsnchat.gpt4("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
+    gpt4(prompt) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const payload = {
+                    prompt: prompt,
+                };
+                const response = yield axios.post(`${apiUrl}/gpt4`, payload, {
+                    headers: this.headers,
+                });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`RsnChat GPT4 Error: ${error}`);
             }
         });
     }
@@ -359,6 +390,37 @@ class RsnChat {
         });
     }
     /**
+     * Generate Text Completion via ZeroTwo
+     * @param {string} prompt ZeroTwo prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * rsnchat.zerotwo("Hello, what is your name?").then((response) => {
+     *   console.log(response.message);
+     * });
+     * ```
+     * @returns {Promise<TextResult>}
+     */
+    zerotwo(prompt) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const payload = {
+                    prompt: prompt,
+                };
+                const response = yield axios.post(`${apiUrl}/zerotwo`, payload, {
+                    headers: this.headers,
+                });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`RsnChat ZeroTwo Error: ${error}`);
+            }
+        });
+    }
+    /**
      * Generate Image with Prodia
      *
      * @param {string} prompt Prodia prompt
@@ -602,6 +664,150 @@ class RsnChat {
             }
             catch (error) {
                 throw new Error(`RsnChat Icon Error: ${error}`);
+            }
+        });
+    }
+    /**
+     * Generate Image with Anime
+     * @param {string} prompt Anime prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.anime(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
+    anime(prompt) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                if (!prompt) {
+                    return "No prompt provided.";
+                }
+                const payload = {
+                    prompt: prompt,
+                };
+                const response = yield axios.post(`${apiUrl}/anime`, payload, {
+                    headers: this.headers,
+                });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`RsnChat Anime Error: ${error}`);
+            }
+        });
+    }
+    /**
+     * Generate Image with cartoon
+     * @param {string} prompt cartoon prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.cartoon(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
+    cartoon(prompt) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                if (!prompt) {
+                    return "No prompt provided.";
+                }
+                const payload = {
+                    prompt: prompt,
+                };
+                const response = yield axios.post(`${apiUrl}/cartoon`, payload, {
+                    headers: this.headers,
+                });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`RsnChat cartoon Error: ${error}`);
+            }
+        });
+    }
+    /**
+     * Generate Image with Photograpy
+     * @param {string} prompt DallE prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.photograpy(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
+    photograpy(prompt) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                if (!prompt) {
+                    return "No prompt provided.";
+                }
+                const payload = {
+                    prompt: prompt,
+                };
+                const response = yield axios.post(`${apiUrl}/photograpy`, payload, {
+                    headers: this.headers,
+                });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`RsnChat Photograpy Error: ${error}`);
+            }
+        });
+    }
+    /**
+     * Generate Image with Disney
+     * @param {string} prompt Disney prompt
+     * @example
+     * ```js
+     * const { RsnChat } = require("rsnchat");
+     *
+     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+     *
+     * const prompt = "beautiful girl";
+     *
+     * rsnchat.disney(prompt).then((response) => {
+     *   console.log(response);
+     * });
+     * ```
+     * @returns {Promise<"No prompt provided." | Image>}
+     */
+    disney(prompt) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                if (!prompt) {
+                    return "No prompt provided.";
+                }
+                const payload = {
+                    prompt: prompt,
+                };
+                const response = yield axios.post(`${apiUrl}/disney`, payload, {
+                    headers: this.headers,
+                });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`RsnChat Disney Error: ${error}`);
             }
         });
     }

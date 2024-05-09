@@ -3,7 +3,7 @@
 
 <p align="center"> <a href="https://www.digitalocean.com/?refcode=52756eb13d44&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img width=200 height=90 src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" /></a> </p>
 
-This package package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Claude, Naomi, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon without restrictions or limits
+This package package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, LlaMa, Mixtral, Claude, Naomi, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle, AI Icon, etc.. without restrictions or limits
 
 ## Installation
 
@@ -25,7 +25,7 @@ Discord : [https://discord.gg/r5QWdKfQxr](https://discord.gg/r5QWdKfQxr)
 
 Join discord server and create account with **/new** slash command and get your apikey with **/key** slash command for free!
 
-## Usage GPT4
+## Usage GPT3
 
 ```javascript
 const { RsnChat } = require("rsnchat");
@@ -33,6 +33,18 @@ const { RsnChat } = require("rsnchat");
 const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.gpt("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
+```
+
+## Usage GPT4
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+rsnchat.gpt4("Hello, what is your name?").then((response) => {
   console.log(response.message);
 });
 ```
@@ -121,7 +133,7 @@ rsnchat.codellama("Hello, what is your name?").then((response) => {
 });
 ```
 
-## Usage Claude (premium)
+## Usage Claude3 (premium)
 
 ```javascript
 const { RsnChat } = require("rsnchat");
@@ -141,6 +153,18 @@ const { RsnChat } = require("rsnchat");
 const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
 
 rsnchat.naomi("Hello, what is your name?").then((response) => {
+  console.log(response.message);
+});
+```
+
+## Usage ZeroTwo (ai girl) (premium)
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+rsnchat.zerotwo("Hello, what is your name?").then((response) => {
   console.log(response.message);
 });
 ```
@@ -291,6 +315,62 @@ const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××"
 const prompt = "beautiful girl";
 
 rsnchat.icon(prompt).then((response) => {
+  console.log(response);
+});
+```
+
+## Usage Anime (premium)
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+const prompt = "beautiful girl";
+
+rsnchat.anime(prompt).then((response) => {
+  console.log(response);
+});
+```
+
+## Usage Cartoon (premium)
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+const prompt = "beautiful girl";
+
+rsnchat.cartoon(prompt).then((response) => {
+  console.log(response);
+});
+```
+
+## Usage Photograpy (premium)
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+const prompt = "beautiful girl";
+
+rsnchat.photograpy(prompt).then((response) => {
+  console.log(response);
+});
+```
+
+## Usage Disney (premium)
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
+
+const prompt = "beautiful girl";
+
+rsnchat.premium(prompt).then((response) => {
   console.log(response);
 });
 ```
