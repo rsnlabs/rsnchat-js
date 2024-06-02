@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://api.rsnai.org/api/v1/user"
+const apiUrl = "https://api.rnilaweera.lk/api/v1/user"
 
 interface Result {
   success: string;

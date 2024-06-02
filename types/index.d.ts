@@ -375,7 +375,7 @@ declare class RsnChat {
      */
     cartoon(prompt: string): Promise<"No prompt provided." | Image>;
     /**
-     * Generate Image with photograpy
+     * Generate Image with Photograpy
      * @param {string} prompt DallE prompt
      * @example
      * ```js
@@ -393,8 +393,8 @@ declare class RsnChat {
      */
     photograpy(prompt: string): Promise<"No prompt provided." | Image>;
     /**
-     * Generate Image with disney
-     * @param {string} prompt disney prompt
+     * Generate Image with Disney
+     * @param {string} prompt Disney prompt
      * @example
      * ```js
      * const { RsnChat } = require("rsnchat");

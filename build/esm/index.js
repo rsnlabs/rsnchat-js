@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import axios from "axios";
-const apiUrl = "https://api.rsnai.org/api/v1/user";
+const apiUrl = "https://api.rnilaweera.lk/api/v1/user";
 class RsnChat {
     /**
      * **RsnChat**

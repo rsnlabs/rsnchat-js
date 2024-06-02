@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsnChat = void 0;
 const axios_1 = __importDefault(require("axios"));
-const apiUrl = "https://api.rsnai.org/api/v1/user";
+const apiUrl = "https://api.rnilaweera.lk/api/v1/user";
 class RsnChat {
     /**
      * **RsnChat**
