@@ -1,7 +1,7 @@
 {
   "name": "rsnchat",
-  "version": "4.0.1",
-  "description": "A package for interacting with GPT4-based chat services, OpenChat, Bard, Gemini, Bing, LlaMa, CodeLlama, Mixtral, Claude, Naomi, Prodia, Kandinsky, Absolutebeauty, Sdxl, Dalle and AI Icon",
+  "version": "5.0.0-beta.1",
+  "description": "A package for AI chats and AI images.",
   "type": "module",
   "types": "./types/index.d.ts",
   "bin": {
@@ -25,7 +25,7 @@
     "test": "node example/test.cjs && node example/image.cjs",
     "compile": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json && node compilec.js",
     "build:clean": "rm -rf ./build",
-    "build": "npm-run-all build:clean compile && node ./scripts/prepare-package-json"
+    "build": "npm-run-all build:clean compile"
   },
   "repository": {
     "type": "git",
@@ -68,12 +68,15 @@
     "free",
     "stable",
     "absolutebeauty",
-    "ai-icon",
+    "icon",
     "sdxl",
     "dalle",
     "prodia",
     "kandinsky",
-    "claude3"
+    "claude",
+    "grok",
+    "gemini",
+    "deepseek"
   ],
   "dependencies": {
     "axios": "^1.6.3",

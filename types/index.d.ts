@@ -1,17 +1,16 @@
 interface Result {
     success: string;
 }
+interface ModelsResponse {
+    chatModels: string[];
+    imageModels: string[];
+}
 interface TextResult extends Result {
     message: string;
 }
-interface ProdiaResult extends Result {
-    imageUrl: string;
-    base64: string;
-}
 interface Image extends Result {
-    image: string;
+    image_url: string;
 }
-type ProdiaModels = "3Guofeng3_v34.safetensors [50f420de]" | "absolutereality_V16.safetensors [37db0fc3]" | "absolutereality_v181.safetensors [3d9d4d2b]" | "amIReal_V41.safetensors [0a8a2e61]" | "analog-diffusion-1.0.ckpt [9ca13f02]" | "anythingv3_0-pruned.ckpt [2700c435]" | "anything-v4.5-pruned.ckpt [65745d25]" | "anythingV5_PrtRE.safetensors [893e49b9]" | "AOM3A3_orangemixs.safetensors [9600da17]" | "blazing_drive_v10g.safetensors [ca1c1eab]" | "cetusMix_Version35.safetensors [de2f2560]" | "childrensStories_v13D.safetensors [9dfaabcb]" | "childrensStories_v1SemiReal.safetensors [a1c56dbb]" | "childrensStories_v1ToonAnime.safetensors [2ec7b88b]" | "Counterfeit_v30.safetensors [9e2a8f19]" | "cuteyukimixAdorable_midchapter3.safetensors [04bdffe6]" | "cyberrealistic_v33.safetensors [82b0d085]" | "dalcefo_v4.safetensors [425952fe]" | "deliberate_v2.safetensors [10ec4b29]" | "deliberate_v3.safetensors [afd9d2d4]" | "dreamlike-anime-1.0.safetensors [4520e090]" | "dreamlike-diffusion-1.0.safetensors [5c9fd6e0]" | "dreamlike-photoreal-2.0.safetensors [fdcf65e7]" | "dreamshaper_6BakedVae.safetensors [114c8abb]" | "dreamshaper_7.safetensors [5cf5ae06]" | "dreamshaper_8.safetensors [9d40847d]" | "edgeOfRealism_eorV20.safetensors [3ed5de15]" | "EimisAnimeDiffusion_V1.ckpt [4f828a15]" | "elldreths-vivid-mix.safetensors [342d9d26]" | "epicrealism_naturalSinRC1VAE.safetensors [90a4c676]" | "ICantBelieveItsNotPhotography_seco.safetensors [4e7a3dfd]" | "juggernaut_aftermath.safetensors [5e20c455]" | "lofi_v4.safetensors [ccc204d6]" | "lyriel_v16.safetensors [68fceea2]" | "majicmixRealistic_v4.safetensors [29d0de58]" | "mechamix_v10.safetensors [ee685731]" | "meinamix_meinaV9.safetensors [2ec66ab0]" | "meinamix_meinaV11.safetensors [b56ce717]" | "neverendingDream_v122.safetensors [f964ceeb]" | "openjourney_V4.ckpt [ca2f377f]" | "pastelMixStylizedAnime_pruned_fp16.safetensors [793a26e8]" | "portraitplus_V1.0.safetensors [1400e684]" | "protogenx34.safetensors [5896f8d5]" | "Realistic_Vision_V1.4-pruned-fp16.safetensors [8d21810b]" | "Realistic_Vision_V2.0.safetensors [79587710]" | "Realistic_Vision_V4.0.safetensors [29a7afaa]" | "Realistic_Vision_V5.0.safetensors [614d1063]" | "redshift_diffusion-V10.safetensors [1400e684]" | "revAnimated_v122.safetensors [3f4fefd9]" | "rundiffusionFX25D_v10.safetensors [cd12b0ee]" | "rundiffusionFX_v10.safetensors [cd4e694d]" | "sdv1_4.ckpt [7460a6fa]" | "shoninsBeautiful_v10.safetensors [25d8c546]" | "theallys-mix-ii-churned.safetensors [5d9225a4]" | "timeless-1.0.ckpt [7c4971d4]" | "toonyou_beta6.safetensors [980f6b15]";
 declare class RsnChat {
     headers: {
         Authorization: string;
@@ -19,396 +18,40 @@ declare class RsnChat {
     /**
      * **RsnChat**
      *
-     * Discord : https://discord.gg/r5QWdKfQxr
+     * Discord: https://discord.gg/r5QWdKfQxr
      *
-     * Join discord server and create account with /new slash command and get your apikey with /key slash command for free!
+     * Join the Discord server and create an account with `/register` slash command.
+     * Get your API key using `/generate-key` for free!
      *
      * @param {string} apikey - RsnChat API Key (required)
      */
-    constructor(apikey?: string);
-    validateApiKey(apikey: string): void;
+    constructor(apikey: string);
     /**
-     * Generate Text Completion via GPT3
-     * @param {string} prompt GPT3 prompt
+     * Get available active models list (Chat & Image)
+     * @returns {Promise<ModelsResponse>} - Returns active chat and image models
      * @example
      * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.gpt("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
+     * const rsnchat = new RsnChat("your_api_key");
+     * rsnchat.getModels().then(models => {
+     *   console.log(models.chatModels); // Active chat models
+     *   console.log(models.imageModels); // Active image models
      * });
      * ```
+     */
+    getModels(): Promise<ModelsResponse>;
+    /**
+     * Generate Text Completion
+     * @param {string} prompt - Required text input
+     * @param {string} model - AI model name (https://api.rnilaweera.lk/api/models)
      * @returns {Promise<TextResult>}
      */
-    gpt(prompt: string): Promise<TextResult>;
+    chat(prompt: string, model: string): Promise<TextResult>;
     /**
-     * Generate Text Completion via GPT4
-     * @param {string} prompt GPT4 prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.gpt4("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
+     * Generate Image Completion
+     * @param {string} prompt - Required image description
+     * @param {string} model - AI model name (https://api.rnilaweera.lk/api/models)
+     * @returns {Promise<Image>}
      */
-    gpt4(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via OpenChat
-     * @param {string} prompt OpenChat prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.openchat("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
-     */
-    openchat(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via Bard
-     * @param {string} prompt Bard AI prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.bard("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
-     */
-    bard(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via Gemini
-     * @param {string} prompt Gemini prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.gemini("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns
-     */
-    gemini(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via Bing
-     * @param {string} prompt Bing prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.bing("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns
-     */
-    bing(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via LLaMa
-     * @param {string} prompt LlaMa prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.llama("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
-     */
-    llama(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via Mixtral
-     * @param {string} prompt Mixtral prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.mixtral("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
-     */
-    mixtral(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via Claude
-     * @param {string} prompt Claude prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.claude("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
-     */
-    claude(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via Naomi
-     * @param {string} prompt Naomi prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.naomi("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
-     */
-    naomi(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via CodeLLaMa
-     * @param {string} prompt CodeLlaMa prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.codellama("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
-     */
-    codellama(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Text Completion via ZeroTwo
-     * @param {string} prompt ZeroTwo prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * rsnchat.zerotwo("Hello, what is your name?").then((response) => {
-     *   console.log(response.message);
-     * });
-     * ```
-     * @returns {Promise<TextResult>}
-     */
-    zerotwo(prompt: string): Promise<TextResult>;
-    /**
-     * Generate Image with Prodia
-     *
-     * @param {string} prompt Prodia prompt
-     * @param {string} negative_prompt Prodia negative prompt
-     * @param {string} model Prodia model
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     * const negative_prompt = "blury, bad quality";
-     * const model = "absolutereality_v181.safetensors [3d9d4d2b]";
-     *
-     * rsnchat.prodia(prompt, negative_prompt, model).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns
-     */
-    prodia(prompt: string, negative_prompt: string, model: ProdiaModels): Promise<ProdiaResult | "No prompt provided." | "No negative_prompt provided." | "No model provided.">;
-    /**
-     * Generate Image with kandinsky
-     * @param {string} prompt kandinsky prompt
-     * @param {string} negative_prompt kandinsky negative prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     * const negative_prompt = "blury, bad quality";
-     *
-     * rsnchat.kandinsky(prompt, negative_prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | "No negative_prompt provided." | Image>}
-     */
-    kandinsky(prompt: string, negative_prompt: string): Promise<"No prompt provided." | "No negative_prompt provided." | Image>;
-    /**
-     * Generate Image with AbsoluteBeauty
-     * @param {string} prompt AbsoluteBeauty prompt
-     * @param {string} negative_prompt AbsoluteBeauty negative prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     * const negative_prompt = "blury, bad quality";
-     *
-     * rsnchat.absolutebeauty(prompt, negative_prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | "No negative_prompt provided." | Image>}
-     */
-    absolutebeauty(prompt: string, negative_prompt: string): Promise<"No prompt provided." | "No negative_prompt provided." | Image>;
-    /**
-     * Generate Image with SDXL
-     * @param {string} prompt SDXL prompt
-     * @param {string} negative_prompt SDXL negative prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     * const negative_prompt = "blury, bad quality";
-     *
-     * rsnchat.sdxl(prompt, negative_prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | "No negative_prompt provided." | Image>}
-     */
-    sdxl(prompt: string, negative_prompt: string): Promise<"No prompt provided." | "No negative_prompt provided." | Image>;
-    /**
-     * Generate Image with DallE
-     * @param {string} prompt DallE prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     *
-     * rsnchat.dalle(prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | Image>}
-     */
-    dalle(prompt: string): Promise<"No prompt provided." | Image>;
-    /**
-     * Generate Image with IconAPI
-     * @param {string} prompt IconAPI prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     *
-     * rsnchat.icon(prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | Image>}
-     */
-    icon(prompt: string): Promise<"No prompt provided." | Image>;
-    /**
-     * Generate Image with Anime
-     * @param {string} prompt Anime prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     *
-     * rsnchat.anime(prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | Image>}
-     */
-    anime(prompt: string): Promise<"No prompt provided." | Image>;
-    /**
-     * Generate Image with cartoon
-     * @param {string} prompt cartoon prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     *
-     * rsnchat.cartoon(prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | Image>}
-     */
-    cartoon(prompt: string): Promise<"No prompt provided." | Image>;
-    /**
-     * Generate Image with Photograpy
-     * @param {string} prompt DallE prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     *
-     * rsnchat.photograpy(prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | Image>}
-     */
-    photograpy(prompt: string): Promise<"No prompt provided." | Image>;
-    /**
-     * Generate Image with Disney
-     * @param {string} prompt Disney prompt
-     * @example
-     * ```js
-     * const { RsnChat } = require("rsnchat");
-     *
-     * const rsnchat = new RsnChat("rsnai_××××××××××××××××××××××");
-     *
-     * const prompt = "beautiful girl";
-     *
-     * rsnchat.disney(prompt).then((response) => {
-     *   console.log(response);
-     * });
-     * ```
-     * @returns {Promise<"No prompt provided." | Image>}
-     */
-    disney(prompt: string): Promise<"No prompt provided." | Image>;
+    image(prompt: string, model: string): Promise<Image>;
 }
-export { RsnChat, Result, Image, TextResult, ProdiaResult };
+export { RsnChat, Result, Image, TextResult, ModelsResponse };
