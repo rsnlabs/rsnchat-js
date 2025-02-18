@@ -19,7 +19,7 @@ npm i rsnchat
 
 # APIKEY
 
-Discord : [https://discord.gg/r5QWdKfQxr](https://discord.gg/r5QWdKfQxr)
+Discord : [https://api.rnilaweera.lk/discord](https://api.rnilaweera.lk/discord)
 
 Join discord server and create account with **/register** slash command and get your apikey with **/generate-key** slash command for free!
 
@@ -46,7 +46,7 @@ const { RsnChat } = require("rsnchat");
 const rsnchat = new RsnChat("rsnlabs_××××××××××××××××××××××××××××××");
 
 const prompt = "Hello, what is your name?"
-const model = "gemini" // gpt, grok-2, etc... (https://api.rnilaweera.lk/api/models)
+const model = "gemini" // gpt, grok-2, llama, etc... (https://api.rnilaweera.lk/api/models)
 
 rsnchat.chat(prompt, model).then((response) => {
   console.log(response);

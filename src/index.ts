@@ -30,7 +30,7 @@ class RsnChat {
   /**
    * **RsnChat**
    *
-   * Discord: https://discord.gg/r5QWdKfQxr
+   * Discord: https://api.rnilaweera.lk/discord
    *
    * Join the Discord server and create an account with `/register` slash command.
    * Get your API key using `/generate-key` for free!
