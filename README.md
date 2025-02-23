@@ -72,6 +72,22 @@ rsnchat.image(prompt, model).then((response) => {
 });
 ```
 
+## Usage Check NSFW
+
+```javascript
+const { RsnChat } = require("rsnchat");
+
+const rsnchat = new RsnChat("rsnlabs_××××××××××××××××××××××××××××××");
+
+const image_url = "";
+
+rsnchat.checkNSFW(image_url).then((response) => {
+  console.log(response);
+}).catch((error) => {
+  console.error(error.message);
+});
+```
+
 **Example CLI Command**
 
 ```hs

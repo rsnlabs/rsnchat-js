@@ -11,6 +11,9 @@ interface TextResult extends Result {
 interface Image extends Result {
     image_url: string;
 }
+interface checkNSFW extends Result {
+    nsfw: boolean;
+}
 declare class RsnChat {
     headers: {
         Authorization: string;
@@ -53,5 +56,11 @@ declare class RsnChat {
      * @returns {Promise<Image>}
      */
     image(prompt: string, model: string): Promise<Image>;
+    /**
+     * Check NSFW Image Completion
+     * @param {string} image_url - Required image url
+     * @returns {Promise<Image>}
+     */
+    checkNSFW(image_url: string): Promise<checkNSFW>;
 }
-export { RsnChat, Result, Image, TextResult, ModelsResponse };
+export { RsnChat, Result, Image, TextResult, ModelsResponse, checkNSFW };

@@ -110,5 +110,25 @@ class RsnChat {
             }
         });
     }
+    /**
+     * Check NSFW Image Completion
+     * @param {string} image_url - Required image url
+     * @returns {Promise<Image>}
+     */
+    checkNSFW(image_url) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var _a, _b;
+            if (!image_url || typeof image_url !== "string") {
+                throw new Error("image_url is required and must be a string.");
+            }
+            try {
+                const response = yield axios_1.default.post(`${apiUrl}image/check-nsfw`, { image_url }, { headers: this.headers });
+                return response.data;
+            }
+            catch (error) {
+                throw new Error(`Check NSFW Error: ${((_b = (_a = error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.error) || error.message}`);
+            }
+        });
+    }
 }
 exports.RsnChat = RsnChat;

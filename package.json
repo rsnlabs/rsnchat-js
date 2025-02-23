@@ -1,6 +1,6 @@
 {
   "name": "rsnchat",
-  "version": "5.0.0-beta.2",
+  "version": "5.0.0-beta.3",
   "description": "A package for AI chats and AI images.",
   "type": "module",
   "types": "./types/index.d.ts",

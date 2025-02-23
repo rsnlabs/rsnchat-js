@@ -24,6 +24,10 @@ interface Image extends Result {
   image_url: string;
 }
 
+interface checkNSFW extends Result {
+  nsfw: boolean;
+}
+
 class RsnChat {
   headers: { Authorization: string };
 
@@ -126,6 +130,28 @@ class RsnChat {
       throw new Error(`Image Generation Error: ${error.response?.data?.error || error.message}`);
     }
   }
+  
+  /**
+   * Check NSFW Image Completion
+   * @param {string} image_url - Required image url
+   * @returns {Promise<Image>}
+   */
+  async checkNSFW(image_url: string): Promise<checkNSFW> {
+    if (!image_url || typeof image_url !== "string") {
+      throw new Error("image_url is required and must be a string.");
+    }
+
+    try {
+      const response = await axios.post(
+        `${apiUrl}image/check-nsfw`,
+        { image_url },
+        { headers: this.headers }
+      );
+      return response.data as checkNSFW;
+    } catch (error: any) {
+      throw new Error(`Check NSFW Error: ${error.response?.data?.error || error.message}`);
+    }
+  }
 }
 
-export { RsnChat, Result, Image, TextResult, ModelsResponse };
+export { RsnChat, Result, Image, TextResult, ModelsResponse, checkNSFW };
